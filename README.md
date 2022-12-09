@@ -12,6 +12,8 @@ processed with SILE.
 
 ![QR codes](qrcode.png "QR code example")
 
+On a slightly related topic, you might also be interested in the [barcodes.sile](https://github.com/Omikhleia/barcodes.sile) package set.
+
 ## Installation
 
 These packages require SILE v0.14 or upper.
