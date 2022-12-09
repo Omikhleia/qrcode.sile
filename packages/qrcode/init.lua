@@ -58,8 +58,6 @@ function package:registerCommands ()
 
         -- N.B. This is probably wrong for RTL or BTT writing directions!
 
-        local h = node.height:tonumber()
-        local d = node.depth:tonumber()
         local Xn = w / (#tab_or_message + 2 * safeZone)
         for i, col in ipairs(tab_or_message) do
           for j, row in ipairs(col) do
@@ -77,6 +75,8 @@ function package:registerCommands ()
         -- NOTE: Drawn inside the box, so borders slightly overlap with inner content.
         -- This should be negligible compared to the safeZone
         -- local thickness = 0.5
+        -- local h = node.height:tonumber()
+        -- local d = node.depth:tonumber()
         -- SILE.outputter:drawRule(X0, Y0 + d - thickness, w, thickness)
         -- SILE.outputter:drawRule(X0, Y0 - h, w, thickness)
         -- SILE.outputter:drawRule(X0, Y0 - h, thickness, h + d)
