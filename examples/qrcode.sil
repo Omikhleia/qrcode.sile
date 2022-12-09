@@ -1,0 +1,22 @@
+\begin[papersize=a5,class=plain]{document}
+\neverindent
+\nofolios
+\use[module=packages.qrcode]
+
+\font[family=Libertinus Serif, size=10]
+
+\center{\font[weight=700, size=12]{QR codes}}
+
+\bigskip
+
+\begin{center}
+Here is a \qrcode[code=http://github.com/Omikhleia/qrcode.sile/] QR code.
+\end{center}
+
+\medskip
+\qrcode[code=http://github.com/Omikhleia/qrcode.sile/, safezone=false, ec=4, module=0.75mm]
+
+This QR code has the same content but is rendered here without safety area, a larger module
+and a higher error correction level.
+
+\end{document}
