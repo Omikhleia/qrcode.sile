@@ -1,7 +1,7 @@
 # qrcode.sile
 
-[![license](https://img.shields.io/github/license/Omikhleia/qrcode.sile)](LICENSE)
-[![Luacheck](https://img.shields.io/github/workflow/status/Omikhleia/qrcode.sile/Luacheck?label=Luacheck&logo=Lua)](https://github.com/Omikhleia/qrcode.sile/actions?workflow=Luacheck)
+[![license](https://img.shields.io/github/license/Omikhleia/qrcode.sile?label=License)](LICENSE)
+[![Luacheck](https://img.shields.io/github/actions/workflow/status/Omikhleia/qrcode.sile/luacheck.yml?branch=main&label=Luacheck&logo=Lua)](https://github.com/Omikhleia/qrcode.sile/actions?workflow=Luacheck)
 [![Luarocks](https://img.shields.io/luarocks/v/Omikhleia/qrcode.sile?label=Luarocks&logo=Lua)](https://luarocks.org/modules/Omikhleia/qrcode.sile)
 
 This package for the [SILE](https://github.com/sile-typesetter/sile) typesetting
