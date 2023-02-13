@@ -1,7 +1,7 @@
 package = "qrcode.sile"
 version = "dev-1"
 source = {
-  url = "git://github.com/Omikhleia/qrcode.sile.git",
+  url = "git+https://github.com/Omikhleia/qrcode.sile.git",
 }
 description = {
   summary = "QR code package for the SILE typesetting system.",
