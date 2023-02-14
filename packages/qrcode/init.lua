@@ -112,7 +112,7 @@ QR codes include an error correction capacity, so that they might be deciphered
 even when damaged or partly obscured. GS1 recommends at least the “medium”
 error correction level (approx. 15\% of recovery capacity), which is therefore
 enabled by default. You can change the error correction level by setting
-the \autodoc:parameter{ec=<level>} option to 1 (“medium”), 2 (“medium”), 3 (“quartil”)
+the \autodoc:parameter{ec=<level>} option to 1 (“low”), 2 (“medium”), 3 (“quartil”)
 or 4 (“high”), respectively leading to a 7\%, 15\%, 25\% or 30\% recovery capacity.
 
 Here is this package in action \qrcode[code=http://github.com/Omikhleia/qrcode.sile/] with
