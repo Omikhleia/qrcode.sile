@@ -1,17 +1,13 @@
 std = "min+sile"
 include_files = {
   "**/*.lua",
-  "sile.in",
   "*.rockspec",
   ".busted",
   ".luacheckrc"
 }
 exclude_files = {
-  "benchmark-*",
-  "compare-*",
-  "sile-*",
   "lua_modules",
-  -- "lua-libraries", -- Let's also check out vendored libraries
+  "lua-libraries",
   ".lua",
   ".luarocks",
   ".install"
