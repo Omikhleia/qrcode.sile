@@ -3,6 +3,8 @@
 -- Didier Willis, 2022.
 -- License: BSD 3-Clause
 --
+require("silex.types") -- Compatibility shims
+
 local qrencode = require("qrencode")
 local base = require("packages.base")
 
@@ -32,7 +34,7 @@ function package:registerCommands ()
     if options.width then
       width = SU.cast("measurement", options.width)
       X = width / (#tab_or_message + 2 * safeZone)
-      if X < SILE.measurement("0.5mm") then
+      if X < SILE.types.measurement("0.5mm") then
         SU.warn("QR code width is too small (minimum recommended module of 0.5mm is not satisfied)")
       end
       if options.module then
@@ -40,16 +42,16 @@ function package:registerCommands ()
       end
     else
       X = SU.cast("measurement", options.module or "0.5mm")
-      if X < SILE.measurement("0.5mm") then
+      if X < SILE.types.measurement("0.5mm") then
         SU.warn("QR code width is too small (minimum recommended module of 0.5mm is not satisfied)")
       end
       width = X * (#tab_or_message + 8)
     end
 
     SILE.typesetter:pushHbox({
-      width = SILE.length(width),
-      height = SILE.length(width - safeZone * X),
-      depth = SILE.length(safeZone * X),
+      width = SILE.types.length(width),
+      height = SILE.types.length(width - safeZone * X),
+      depth = SILE.types.length(safeZone * X),
       outputYourself = function(node, typesetter, line)
         local X0 = typesetter.frame.state.cursorX
         local Y0 = typesetter.frame.state.cursorY
