@@ -19,4 +19,9 @@ Here is a \qrcode[code=http://github.com/Omikhleia/qrcode.sile/] QR code.
 This QR code has the same content but is rendered here without safety area, a larger module
 and a higher error correction level.
 
+Now, here is something fancier, with dotted and/or colored cells.
+We kept the safety area on, so that each QR code is well separated from the others.
+
+\qrcode[code=http://github.com/Omikhleia/qrcode.sile/, module=1mm, dotted=true] \qrcode[code=http://github.com/Omikhleia/qrcode.sile/, module=1mm, colored=true] \qrcode[code=http://github.com/Omikhleia/qrcode.sile/, module=1mm, dotted=true, colored=true]
+
 \end{document}

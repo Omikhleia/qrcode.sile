@@ -40,10 +40,11 @@ of classes and packages.
 ## License
 
 All SILE-related code and samples in this repository are released under the BSD 3-Clause license,
-(c) 2022 Omikhleia.
+(c) 2022-2025 Omikhleia.
 
-A copy of the [luaqrcode](https://github.com/speedata/luaqrcode) QR code library is
+A **modified** copy of the [luaqrcode](https://github.com/speedata/luaqrcode) QR code library is
 distributed alongside this package.
 All corresponding files (in the `lua-libraries` folder) are released under
 the BSD 3-Clause license, (c) 2012-2020, Patrick Gundlach (SPEEDATA GMBH) and
 contributors.
+Modifications are traced with an `OMIKHLEIA` comment in the code.
