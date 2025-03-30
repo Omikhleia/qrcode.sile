@@ -43,9 +43,9 @@ function package:registerCommands ()
     else
       X = SU.cast("measurement", options.module or "0.5mm")
       if X < SILE.types.measurement("0.5mm") then
-        SU.warn("QR code width is too small (minimum recommended module of 0.5mm is not satisfied)")
+        SU.warn("QR code module is too small (minimum recommended module of 0.5mm is not satisfied)")
       end
-      width = X * (#tab_or_message + 8)
+      width = X * (#tab_or_message + 2 * safeZone)
     end
 
     SILE.typesetter:pushHbox({
