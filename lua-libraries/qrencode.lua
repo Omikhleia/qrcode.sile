@@ -1,6 +1,17 @@
 --- The qrcode library is licensed under the 3-clause BSD license (aka "new BSD")
 --- To get in contact with the author, mail to <gundlach@speedata.de>.
----
+--
+-- THIS VERSION IS MODIFIED BY OMIKHLEIA / DIDIER WILLIS 2025
+-- Mandatory "black" cells in the original version used a value of 2 (and
+-- regular "black" cells a value of 1)
+-- To allow for some coloring, we now use:
+--   1 for regular black cells
+--   2 for outer detection block cells
+--   3 for inner detection block cells
+--   4 for version and information cells, and a cell top left of the bottom detection block
+--   5 for alignment cells
+-- See OMIKHLEIA comments.
+--
 --- Please report bugs on the [github project page](http://speedata.github.io/luaqrcode/).
 -- Copyright (c) 2012-2020, Patrick Gundlach and contributors, see https://github.com/speedata/luaqrcode
 -- All rights reserved.
@@ -157,7 +168,7 @@ end
 -- depending on the bitstring (size 1!) where "0"=blank and "1"=black.
 local function fill_matrix_position(matrix,bitstring,x,y)
 	if bitstring == "1" then
-		matrix[x][y] = 2
+		matrix[x][y] = 4 -- OMIKHLEIA
 	else
 		matrix[x][y] = -2
 	end
@@ -816,11 +827,11 @@ local function add_position_detection_patterns(tab_x)
 	for i=1,3 do
 		for j=1,3 do
 			-- top left
-			tab_x[2+j][i+2]=2
+			tab_x[2+j][i+2]=3 -- OMIKHLEIA
 			-- top right
-			tab_x[size - j - 1][i+2]=2
+			tab_x[size - j - 1][i+2]=3 -- OMIKHLEIA
 			-- bottom left
-			tab_x[2 + j][size - i - 1]=2
+			tab_x[2 + j][size - i - 1]=3 -- OMIKHLEIA
 		end
 	end
 end
@@ -833,14 +844,14 @@ local function add_timing_pattern(tab_x)
 	col = 9
 	for i=col,#tab_x - 8 do
 		if math.fmod(i,2) == 1 then
-			tab_x[i][line] = 2
+			tab_x[i][line] = 5 -- OMIKHLEIA
 		else
 			tab_x[i][line] = -2
 		end
 	end
 	for i=col,#tab_x - 8 do
 		if math.fmod(i,2) == 1 then
-			tab_x[line][i] = 2
+			tab_x[line][i] = 5 -- OMIKHLEIA
 		else
 			tab_x[line][i] = -2
 		end
@@ -1010,7 +1021,7 @@ local function prepare_matrix_with_mask( version,ec_level, mask )
 	add_version_information(tab_x,version)
 
 	-- black pixel above lower left position detection pattern
-	tab_x[9][size - 7] = 2
+	tab_x[9][size - 7] = 4 -- OMIKHLEIA
 	add_alignment_pattern(tab_x)
 	add_typeinfo_to_matrix(tab_x,ec_level, mask)
 	return tab_x

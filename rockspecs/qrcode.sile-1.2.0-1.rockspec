@@ -1,8 +1,9 @@
 rockspec_format = "3.0"
 package = "qrcode.sile"
-version = "dev-1"
+version = "1.2.0-1"
 source = {
   url = "git+https://github.com/Omikhleia/qrcode.sile.git",
+  tag = "v1.2.0",
 }
 description = {
   summary = "QR code package for the SILE typesetting system.",
@@ -14,7 +15,7 @@ description = {
 }
 dependencies = {
   "lua >= 5.1",
-  "silex.sile",
+  "silex.sile >= 0.6.0, < 1.0",
   "grail",
 }
 build = {
