@@ -166,10 +166,11 @@ Here is this package in action \qrcode[code=http://github.com/Omikhleia/qrcode.s
 
 This QR code has the same content but is rendered here without safety area, a larger module and a higher error correction level.
 Now, here is something fancier, with the \autodoc:parameter{dotted=true} and \autodoc:parameter{colored=true} options.
-We left the safety area on, so that each QR code cell is well separated from the others.
-Such QR codes are not recommended for printed material at small size, but they are still readable by most scanners. They are more suitable in big-sized posters. In colored mode, the colors are slightly randomized so each cell is different from the others, but the color scheme is still consistent.
+We kept the safety area on, so that each QR code is well separated from the others.
+Such QR codes are not recommended for printed material at small size, but they are still readable by most scanners.
+They are more suitable in big-sized posters. In colored mode, the colors are slightly randomized so each cell is different from the others, but the color scheme is still consistent.
 
-\qrcode[code=http://github.com/Omikhleia/qrcode.sile/, module=1.1mm, dotted=true] \qrcode[code=http://github.com/Omikhleia/qrcode.sile/, module=1.1mm, colored=true] \qrcode[code=http://github.com/Omikhleia/qrcode.sile/, module=1.1mm, dotted=true, colored=true]
+\noindent\qrcode[code=http://github.com/Omikhleia/qrcode.sile/, width=33%lw, dotted=true]\qrcode[code=http://github.com/Omikhleia/qrcode.sile/, width=33%lw, colored=true]\qrcode[code=http://github.com/Omikhleia/qrcode.sile/, width=33%lw, dotted=true, colored=true]
 
 \end{document}]]
 
