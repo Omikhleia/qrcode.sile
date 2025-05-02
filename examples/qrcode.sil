@@ -22,6 +22,14 @@ and a higher error correction level.
 Now, here is something fancier, with dotted and/or colored cells.
 We kept the safety area on, so that each QR code is well separated from the others.
 
+\begin{center}
 \qrcode[code=http://github.com/Omikhleia/qrcode.sile/, module=1mm, dotted=true] \qrcode[code=http://github.com/Omikhleia/qrcode.sile/, module=1mm, colored=true] \qrcode[code=http://github.com/Omikhleia/qrcode.sile/, module=1mm, dotted=true, colored=true]
+\end{center}
+
+Finally, here is a QR code with a logo superimposed on it.
+
+\begin{center}
+\qrcode[logo=sherlock-logo.png, dotted=true, code=https://www.sherlockians.com/sshf, safezone=true, ec=2, module=1mm]
+\end{center}
 
 \end{document}
