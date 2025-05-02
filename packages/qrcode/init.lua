@@ -93,6 +93,26 @@ function package:registerCommands ()
       end
       width = X * (#tab_or_message + 2 * safeZone)
     end
+    local logo = options.logo
+    if logo then
+      logo = SILE.resolveFile(logo) or SU.error("QR code logo file not found: ", logo)
+    end
+    local logoMin
+    local logoMax
+    if logo then
+      -- The logo should not destroy more the QR code.
+      -- This is a bit empirical, but we can use the error recovery capacity of the QR code
+      -- and determine a decent size for the logo.
+      -- The minimal error recovery is around 7% in Low mode (1), so we pick a size
+      -- that is around 6.5% of the QR code (and we lose most of the error recovery).
+      -- For other modes, we pick a size that is around 7% of the QR code, to ensure
+      -- the error recovery is not too much affected and the logo is not too big.
+      -- Note: Some other implementations go up to using 10% of the QR code size.
+      -- I sometimes had troubles scanning them, so I prefer to be conservative here.
+      local logoSz = #tab_or_message * math.sqrt(ec == 1 and 0.065 or 0.07)
+      logoMin = math.ceil(#tab_or_message / 2 - logoSz / 2)
+      logoMax = math.floor(#tab_or_message / 2 + logoSz / 2)
+    end
 
     SILE.typesetter:pushHbox({
       width = SILE.types.length(width),
@@ -110,7 +130,9 @@ function package:registerCommands ()
         local painter = PathRenderer()
         for i, col in ipairs(tab_or_message) do
           for j, cell in ipairs(col) do
-            if cell > 0 then -- "Black" cell
+            if logo and i > logoMin and i <= logoMax and j > logoMin and j <= logoMax then -- luacheck: ignore 542
+              -- We reserve an empty square for the logo
+            elseif cell > 0 then -- "Black" cell
               local color = colored and computeColor(cell) or nil
               if dotted then
                 local path
@@ -148,6 +170,16 @@ function package:registerCommands ()
             end
           end
         end
+        if logo then
+          SILE.outputter:drawImage(
+            logo,
+            X0 + (safeZone + logoMin) * Xn,
+            Y0 - node.height:tonumber() + (safeZone + logoMin) * Xn,
+            Xn * (logoMax - logoMin),
+            Xn * (logoMax - logoMin),
+            1
+          )
+        end
       end
     })
   end)
@@ -180,9 +212,16 @@ This QR code has the same content but is rendered here without safety area, a la
 Now, here is something fancier, with the \autodoc:parameter{dotted=true} and \autodoc:parameter{colored=true} options.
 We kept the safety area on, so that each QR code is well separated from the others.
 Such QR codes are not recommended for printed material at small size, but they are still readable by most scanners.
-They are more suitable in big-sized posters. In colored mode, the colors are slightly randomized so each cell is different from the others, but the color scheme is still consistent.
+They are more suitable in big-sized posters.
+In colored mode, the colors are slightly randomized so each cell is different from the others, but the color scheme is still consistent.
 
 \noindent\qrcode[code=http://github.com/Omikhleia/qrcode.sile/, width=33%lw, dotted=true]\qrcode[code=http://github.com/Omikhleia/qrcode.sile/, width=33%lw, colored=true]\qrcode[code=http://github.com/Omikhleia/qrcode.sile/, width=33%lw, dotted=true, colored=true]
+
+The \autodoc:parameter{logo} option allows to add an image in the center of the QR code, scaled in a square.
+Obviously, the image should already have a square aspect ratio, or it will be distorted.
+Its size is automatically computed so that it does not destroy the QR code and the image is not too big.
+Some of the error recovery capacity is lost in the process.
+You should therefore always verify that the QR code is still readable by scanning it with a smartphone or a QR code reader.
 
 \end{document}]]
 

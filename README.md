@@ -30,6 +30,11 @@ luarocks install qrcode.sile
 
 Examples are provided in the [examples](./examples) folder.
 
+ - Customizable size and error correction level.
+ - Option for disabling the quiet zone (safety margin).
+ - Colors and/or dotted patterns for nice effects on poster designs. 
+ - Logo image in the center of the QR code, if you do not mind the loss of some error recovery capacity.
+
 The in-code package documentation may also be useful.
 A readable version of the documentation is included in the User Manual for the [resilient.sile](https://github.com/Omikhleia/resilient.sile) collection of classes and packages.
 
