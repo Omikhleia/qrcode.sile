@@ -40,7 +40,7 @@ A readable version of the documentation is included in the User Manual for the [
 
 ## License
 
-All SILE-related code and samples in this repository are released under the GNU General Public License v3.0, (c) 2022-2025 Omikhleia.
+All SILE-related code and samples in this repository are released under the BSD 3-clause license, (c) 2022-2025 Omikhleia.
 
 A **modified** copy of the [luaqrcode](https://github.com/speedata/luaqrcode) QR code library is distributed alongside this package.
 All corresponding files (in the `lua-libraries` folder) are released under the BSD 3-Clause license, (c) 2012-2020, Patrick Gundlach (SPEEDATA GMBH) and contributors.

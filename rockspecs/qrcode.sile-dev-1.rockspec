@@ -10,7 +10,7 @@ description = {
     This package for the SILE typesetter allows printing out a QR code.
   ]],
   homepage = "https://github.com/Omikhleia/qrcode.sile",
-  license = "GPL-3.0",
+  license = "BSD 3-clause",
 }
 dependencies = {
   "lua >= 5.1",
