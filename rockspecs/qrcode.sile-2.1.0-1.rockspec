@@ -1,9 +1,9 @@
 rockspec_format = "3.0"
 package = "qrcode.sile"
-version = "2.0.0-1"
+version = "2.1.0-1"
 source = {
   url = "git+https://github.com/Omikhleia/qrcode.sile.git",
-  tag = "v2.0.0",
+  tag = "v2.1.0",
 }
 description = {
   summary = "QR code package for the SILE typesetting system.",
@@ -11,7 +11,7 @@ description = {
     This package for the SILE typesetter allows printing out a QR code.
   ]],
   homepage = "https://github.com/Omikhleia/qrcode.sile",
-  license = "GPL-3.0",
+  license = "BSD 3-clause",
 }
 dependencies = {
   "lua >= 5.1",
